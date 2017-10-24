@@ -14,7 +14,7 @@ var schemaOptions = {
       email: String,
       auto_meal: Boolean,
       today_meal: Boolean
-  });
+  },schemaOptions);
 
   var Member = mongoose.model('Member', memberSchema);
 

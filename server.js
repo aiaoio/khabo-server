@@ -120,13 +120,13 @@ app.get('/auth/google/callback', userController.authGoogleCallback);
 
 
 // Member controller
-app.post('add_member', memberController.addMember);
-app.post('auto_update_meal', memberController.autoUpdateMeal);
-app.post('set_bool_meal', memberController.setBoolMeal);
+app.post('/add_member', memberController.addMember);
+app.post('/auto_update_meal', memberController.autoUpdateMeal);
+app.post('/set_bool_meal', memberController.setBoolMeal);
 
-app.get('get_today_meal', memberController.getTodayMeal);
-app.get('get_auto_meal', memberController.getAutoMeal);
-app.get('get_member', memberController.getMember);
+app.get('/get_today_meal', memberController.getTodayMeal);
+app.get('/get_auto_meal', memberController.getAutoMeal);
+app.get('/get_member', memberController.getMember);
 
 
 

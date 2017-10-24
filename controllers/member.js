@@ -1,15 +1,17 @@
-var Member = require('../models/Member');
+var Member = require('../models/Members');
 
 
 exports.addMember = function(req, res){
-    var val = req.body
+    var val = req.body.member;
+    console.log(typeof val);
+    console.log(val);
     var member = new Member({
         name: val.name,
         phone: val.phone,
         designation: val.designation,
         email: val.email,
         auto_meal: val.auto_meal,
-        today_meal: val.today_meal
+        today_meal: val.auto_meal
     }).save(function(err, member){
         if(err){
             console.log(err);
