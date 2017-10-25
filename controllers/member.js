@@ -34,10 +34,16 @@ exports.autoUpdateMeal = function(req, res){
 
 
 exports.setBoolMeal = function(req, res){
-    var id = req.body;
-    var bool = req.body;
-    var meal = req.body;
-    Member.findOneAndUpdate({"_id":id}, {$set: {meal : bool }}, function(err, member){
+    var val = req.body.bool_meal;
+
+    var id = val.id;
+    var bool = val.index;
+    var meal = val.name;
+
+    var obj = {};
+    obj[meal] = bool;
+
+    Member.findOneAndUpdate({"_id":id}, {$set: obj}, function(err, member){
         if(err){
             console.log(err);
         }else{
