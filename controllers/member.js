@@ -90,7 +90,8 @@ exports.getAutoMeal = function( req, res ){
 
 
 exports.getMember = function( req, res ){
-    Member.find( function(err, member){
+ var ooo = {}
+    Member.find(ooo).sort({ createdAt: -1 }).exec(function (err, member) {
         if(err){
             console.log(err);
         }else{
