@@ -23,11 +23,25 @@ exports.addMember = function(req, res){
 
 
 exports.autoUpdateMeal = function(req, res){
-    Member.updateMany({ "auto_meal": true }, { $set: { "today_meal" : true } }, function(err, member){
+    Member.update({ "auto_meal": true }, { $set: { "today_meal" : true } }, { multi: true }, function(err, member){
         if(err){
             console.log(err);
         }else{
-            res.send({ msg: 'Member Updated' });
+            autoMealFalse(function(msg){
+                res.send(msg);
+            });
+            
+        }
+    })
+}
+
+function autoMealFalse(callback){
+    Member.update({ "auto_meal": false }, { $set: { "today_meal" : false } }, { multi: true }, function(err, member){
+        if(err){
+            console.log(err);
+        }else{
+            var msg = { msg: 'Member Updated' }
+            callback(msg);
         }
     })
 }
